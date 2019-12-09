@@ -30,6 +30,10 @@ public class CartImpl implements ListActions {
         return userCart.isEmpty();
     }
 
+    public boolean isStored(Product product){
+        return userCart.getList().contains(product);
+    }
+
     public void setUserCart(ProductListImpl userCart) {
         this.userCart = userCart;
     }

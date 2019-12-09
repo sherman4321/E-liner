@@ -1,32 +1,14 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
-<!--lang="en" xmlns:th="http://www.w3.org/1999/xhtml">-->
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="https://www.thymeleaf.org">
 <head>
-    <meta charset="UTF-8">
     <title>Registration</title>
 </head>
-<body>
 <form th:action="@{/registration}"
-      th:object="${userForm}" method="POST">
-    User name:
-    <input type="text" th:field="*{name}" />
-    <br/>
-    Password:
-    <input type="password" th:field="*{password}" />
-    <br/>
-    email:
-    <input type="text" th:field="*{email}" />
-    <br/>
-    <input type="submit" value="Create" />
+      th:object="${userForm}" method="post">
+    <div><label> User Name : <input type="text" name="username"/> </label></div>
+    <div><label> Password: <input type="password" name="password"/> </label></div>
+    <div><label> email: <input type="email" name="email"/> </label></div>
+    <div><input type="submit" value="Confirm"/></div>
 </form>
-
-<br/>
-
-<!--&lt;!&ndash; Check if errorMessage is not null and not empty &ndash;&gt;-->
-
-<!--<div th:if="${errorMessage}" th:utext="${errorMessage}"-->
-     <!--style="color:red;font-style:italic;">-->
-    <!--...-->
-<!--</div>-->
 </body>
 </html>

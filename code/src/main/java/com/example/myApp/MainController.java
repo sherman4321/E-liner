@@ -9,18 +9,14 @@ import com.example.myApp.service.ServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
-import org.springframework.security.oauth2.config.annotation.web.configuration.EnableAuthorizationServer;
-import org.springframework.security.oauth2.config.annotation.web.configuration.EnableResourceServer;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
-import javax.validation.Valid;
 import java.util.Collections;
-import java.util.Optional;
-
-@EnableAuthorizationServer
-@EnableResourceServer
+//
+//@EnableAuthorizationServer
+//@EnableResourceServer
 @Controller
 public class MainController {
     @Autowired
@@ -42,33 +38,26 @@ public class MainController {
 //    }
     @RequestMapping(value = { "/", "/main" }, method = RequestMethod.GET)
     public String mainPage(Model model) {
-
-        model.addAttribute("message", "Hi");
-
+        //model.addAttribute("message", "Hi");
         return "mainPage";
     }
 
-    @RequestMapping(value = { "/oauth/token" }, method = RequestMethod.GET)
+    @RequestMapping(value = { "/login" }, method = RequestMethod.GET)
     public String login(Model model) {
-
-        model.addAttribute("message", "Hi");
-
+        //model.addAttribute("message", "Hi");
         return "login";
     }
 
-    @RequestMapping(value = { "/oauth/token" }, method = RequestMethod.POST)
+    @RequestMapping(value = { "/login" }, method = RequestMethod.POST)
     public String login(Model model, @ModelAttribute("userForm") UserForm userForm) {
         //userForm.getName();
-
-        return "login";
+        return "redirect:/hello";
     }
 
     @RequestMapping(value = { "/registration" }, method = RequestMethod.GET)
     public String showAddPersonPage(Model model) {
-
-        UserForm userForm = new UserForm();
-        model.addAttribute("userForm", userForm);
-
+//        UserForm userForm = new UserForm();
+//        model.addAttribute("userForm", userForm);
         return "registration";
     }
 

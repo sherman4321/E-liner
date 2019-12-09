@@ -46,6 +46,14 @@ public class User extends ShopParticipant {
 
     }
 
+    public CartImpl getMyCart() {
+        return myCart;
+    }
+
+    public void setMyCart(CartImpl myCart) {
+        this.myCart = myCart;
+    }
+
     public User() {
         super();
     }

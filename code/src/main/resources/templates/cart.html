@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="https://www.thymeleaf.org">
+<head>
+    <title>Good Thymes Virtual Grocery</title>
+</head>
+<body>
+<h1>Your Cart</h1>
+<table>
+    <tr>
+        <th>NAME</th>
+        <th>PRICE</th>
+        <th>NUMBER</th>
+        <!--<th>IN STOCK</th>-->
+    </tr>
+    <tr th:each="prod : ${cart}">
+        <td th:text="${prod.name}"></td>
+        <td th:text="${prod.cost}"></td>
+        <td th:text="${prod.number}"></td>
+        <td><form th:action="@{/catalog/cart/remove}"
+                  th:object="${product}" method="post">
+            <input type="hidden" th:value="${prod.name}" name="name"/>
+            <input type="submit" value="Remove"/>
+        </form></td>
+        <!--<td th:text="${prod.inStock}? #{true} : #{false}">yes</td>-->
+    </tr>
+    <a href="/catalog/all">Back to catalog</a>
+</table>
+<!--<p>-->
+<!--<a href="../home.html" th:href="@{/}">Return to home</a>-->
+<!--</p>-->
+</body>
+</html>
